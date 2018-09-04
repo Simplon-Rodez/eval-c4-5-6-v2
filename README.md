@@ -8,7 +8,9 @@
 
 ## Objectifs
 
-- **_Créer l'application_** avec les pages suivantes :
+- **_Créer une application_** de gestion de stock pour une épicerie en
+  utilisant la base de données de l'évaluation C2-C3-v2 avec les pages
+  suivantes :
 
 	- une page d'accueil qui donne accès aux pages suivantes :
         - statistiques
