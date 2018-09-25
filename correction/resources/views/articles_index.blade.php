@@ -22,7 +22,7 @@
                 <td>{{ $article->category->name }}</td>
                 <td>{{ $article->unit->name }}</td>
                 <td class="text-right">{{ $article->sales_price }}</td>
-                <td><form action="{{ route('articles.destroy', $article->id) }}" method="POST">
+                <td><form action="{{ route('articles.destroy', $article->id) }}" method="POST" onclick="return confirm('Voulez-vous supprimer cet article ?')">
                         @method('DELETE')
                         @csrf
                         <button>Supprimer</button>
