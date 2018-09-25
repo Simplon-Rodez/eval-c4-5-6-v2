@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Movement;
+use App\Models\MovementType;
+use App\Models\Article;
 use Illuminate\Http\Request;
 
 class MovementController extends Controller
@@ -22,9 +24,14 @@ class MovementController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $status = $request->session()->get('status', null);
+        $statusType = $request->session()->get('status_type', '');
+        $articles = Article::pluck('name', 'id')->all();
+        $movementTypes = MovementType::pluck('name', 'id')->all();
+
+        return view('movement', compact('articles', 'movementTypes', 'status', 'statusType'));
     }
 
     /**
@@ -35,7 +42,17 @@ class MovementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $movement = new Movement($request->all());
+            $movement->save();
+            $request->session()->flash('status', 'Mouvement enregistré');
+            $request->session()->flash('status_type', 'success');
+        } catch (Exception $e) {
+            $request->session()->flash('status', 'Mouvement pas enregistré');
+            $request->session()->flash('status_type', 'danger');
+        }
+
+        return redirect(route('movements.create'));
     }
 
     /**

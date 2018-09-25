@@ -3,7 +3,7 @@
 @section('content')
     @isset($article)
         @section('subheader', 'Modifier article')
-        {!! Form::model($article, ['route' => ['articles.update', $article->id]]) !!}
+        {!! Form::model($article, ['route' => ['articles.update', $article->id], 'method' => 'put']) !!}
     @else
         @section('subheader', 'Nouvel article')
         {!! Form::open(['route' => 'articles.store']) !!}
@@ -26,6 +26,7 @@
         {!! Form::text('sales_price') !!}
     </div>
 
-    {!! Form::submit('Sauver') !!}
+    {!! Form::submit('Enregistrer', ['class' => 'btn btn-primary']) !!}
+    <a href="{{ URL::previous() }}" class="btn btn-secondary">Annuler</a>
     {!! Form::close() !!}
 @endsection

@@ -25,3 +25,4 @@ Route::get('/statistics', 'StatisticsController@show')->name('statistics');
 Route::get('/history', 'HistoryController@show')->name('history');
 
 Route::resource('articles', 'ArticleController');
+Route::resource('movements', 'MovementController');

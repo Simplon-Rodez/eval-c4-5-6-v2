@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Movement extends Model
 {
+    public $guarded = ['id'];
+    public $timestamps = false;
+
     public function movementType() {
         return $this->belongsTo('App\Models\MovementType');
     }
