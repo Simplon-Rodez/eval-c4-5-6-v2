@@ -49,7 +49,7 @@ class ArticleController extends Controller
             $newArticle->save();
             $request->session()->flash('status', "Article {$newArticle->name} ajouté");
             $request->session()->flash('status_type', 'success');
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $request->session()->flash('status', "L'article {$newArticle->name} n'a pas pu être ajouté");
             $request->session()->flash('status_type', 'danger');
         }
@@ -94,7 +94,7 @@ class ArticleController extends Controller
             $article->update($request->all());
             $request->session()->flash('status', "Article $article->name mis à jour");
             $request->session()->flash('status_type', 'success');
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $request->session()->flash('status', "Article $article->name pas mis à jour");
             $request->session()->flash('status_type', 'danger');
         }
@@ -114,7 +114,7 @@ class ArticleController extends Controller
             $article->delete();
             $request->session()->flash('status', "Article {$article->name} supprimé");
             $request->session()->flash('status_type', 'success');
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $request->session()->flash('status', "Article {$article->name} pas supprimé");
             $request->session()->flash('status_type', 'danger');
         }

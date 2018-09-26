@@ -47,7 +47,7 @@ class MovementController extends Controller
             $movement->save();
             $request->session()->flash('status', 'Mouvement enregistré');
             $request->session()->flash('status_type', 'success');
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $request->session()->flash('status', 'Mouvement pas enregistré');
             $request->session()->flash('status_type', 'danger');
         }
