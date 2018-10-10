@@ -16,6 +16,10 @@ class DatabaseSeeder extends Seeder
             CategoryTableSeeder::class,
             ArticlesTableSeeder::class,
             SupplierTableSeeder::class,
+            DirectionsTableSeeder::class,
+            MovementTypesTableSeeder::class,
+            PurchasesTableSeeder::class,
+            MovementsTableSeeder::class,
             ArticleSupplierTableSeeder::class,
         ]);
     }
